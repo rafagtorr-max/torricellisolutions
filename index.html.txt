@@ -1,11 +1,3 @@
-﻿Here is the complete, single-file production-ready HTML code. It uses modern CSS features like CSS grid, custom variables, Glassmorphism, and custom keyframe animations to create that high-tech, futuristic cyber-grid interface in English.
-Save the code below as index.html and open it in any modern browser to watch the animations come to life.
-
-
-
-
-
-
 HTML
 <!DOCTYPE html>
 <html lang="en">
