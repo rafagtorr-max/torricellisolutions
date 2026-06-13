@@ -1,0 +1,469 @@
+﻿Here is the complete, single-file production-ready HTML code. It uses modern CSS features like CSS grid, custom variables, Glassmorphism, and custom keyframe animations to create that high-tech, futuristic cyber-grid interface in English.
+Save the code below as index.html and open it in any modern browser to watch the animations come to life.
+
+
+
+
+
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Torricelli Solutions | Shaping the Future Under Pressure</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+   
+   <style>
+       /* --- CSS VARIABLES & THEME --- */
+       :root {
+           --bg-deep: #050814;
+           --bg-card: rgba(11, 15, 25, 0.6);
+           --cyan-neon: #00f2fe;
+           --purple-neon: #9b51e0;
+           --text-main: #ffffff;
+           --text-muted: #a0aec0;
+           --border-glass: rgba(0, 242, 254, 0.15);
+           --font-display: 'Orbitron', sans-serif;
+           --font-body: 'Inter', sans-serif;
+           --font-mono: 'Roboto Mono', monospace;
+       }
+
+       /* --- GLOBAL STYLES --- */
+       * {
+           box-sizing: border-box;
+           margin: 0;
+           padding: 0;
+           cursor: none; /* Custom cyber-cursor enabled */
+       }
+
+       html, body {
+           background-color: var(--bg-deep);
+           color: var(--text-main);
+           font-family: var(--font-body);
+           overflow-x: hidden;
+           scroll-behavior: smooth;
+       }
+
+       /* Cyberpunk Grid Overlay Background */
+       body::before {
+           content: '';
+           position: fixed;
+           top: 0; left: 0; width: 100vw; height: 100vh;
+           background: 
+               linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
+               linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
+           background-size: 40px 40px;
+           z-index: -2;
+           pointer-events: none;
+       }
+
+       /* Glowing Ambient Orbs */
+       body::after {
+           content: '';
+           position: fixed;
+           top: 20%; left: 70%; width: 400px; height: 400px;
+           background: radial-gradient(circle, rgba(155, 81, 224, 0.15) 0%, transparent 70%);
+           z-index: -1;
+           filter: blur(50px);
+           pointer-events: none;
+           animation: floatOrb 12s ease-in-out infinite alternate;
+       }
+
+       /* --- INTERACTIVE CUSTOM CURSOR --- */
+       .custom-cursor {
+           width: 8px;
+           height: 8px;
+           background: var(--cyan-neon);
+           border-radius: 50%;
+           position: fixed;
+           pointer-events: none;
+           z-index: 9999;
+           transform: translate(-50%, -50%);
+           box-shadow: 0 0 10px var(--cyan-neon);
+           transition: width 0.1s, height 0.1s;
+       }
+       .custom-cursor-follower {
+           width: 30px;
+           height: 30px;
+           border: 1px solid var(--purple-neon);
+           border-radius: 50%;
+           position: fixed;
+           pointer-events: none;
+           z-index: 9998;
+           transform: translate(-50%, -50%);
+           transition: transform 0.08s ease-out;
+       }
+
+       /* --- NAVIGATION --- */
+       header {
+           position: fixed;
+           top: 0; width: 100%;
+           padding: 20px 5%;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           z-index: 100;
+           backdrop-filter: blur(12px);
+           background: rgba(5, 8, 20, 0.7);
+           border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+       }
+
+       .logo {
+           font-family: var(--font-display);
+           font-size: 1.3rem;
+           font-weight: 900;
+           letter-spacing: 2px;
+           background: linear-gradient(45deg, var(--text-main), var(--cyan-neon));
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+           display: flex;
+           align-items: center;
+           gap: 8px;
+       }
+
+       .logo::before {
+           content: '';
+           width: 12px;
+           height: 12px;
+           background: var(--cyan-neon);
+           box-shadow: 0 0 12px var(--cyan-neon);
+           display: inline-block;
+           clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+       }
+
+       nav ul {
+           display: flex;
+           list-style: none;
+           background: rgba(255, 255, 255, 0.03);
+           padding: 8px 24px;
+           border-radius: 30px;
+           border: 1px solid rgba(255, 255, 255, 0.05);
+       }
+
+       nav a {
+           color: var(--text-muted);
+           text-decoration: none;
+           font-size: 0.9rem;
+           padding: 8px 16px;
+           font-family: var(--font-mono);
+           transition: color 0.3s;
+       }
+
+       nav a:hover {
+           color: var(--cyan-neon);
+           text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+       }
+
+       .btn-connect {
+           font-family: var(--font-mono);
+           font-size: 0.85rem;
+           background: transparent;
+           color: var(--cyan-neon);
+           border: 1px solid var(--cyan-neon);
+           padding: 10px 20px;
+           border-radius: 4px;
+           box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+           transition: all 0.3s ease;
+       }
+
+       .btn-connect:hover {
+           background: var(--cyan-neon);
+           color: var(--bg-deep);
+           box-shadow: 0 0 20px var(--cyan-neon);
+       }
+
+       /* --- HERO SECTION --- */
+       .hero {
+           height: 100vh;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: flex-start;
+           padding: 0 10%;
+           position: relative;
+       }
+
+       .hero-matrix {
+           font-family: var(--font-mono);
+           color: var(--purple-neon);
+           font-size: 0.9rem;
+           margin-bottom: 15px;
+           letter-spacing: 3px;
+           animation: glitchText 3s infinite;
+       }
+
+       h1 {
+           font-family: var(--font-display);
+           font-size: 4rem;
+           line-height: 1.1;
+           margin-bottom: 25px;
+           max-width: 800px;
+       }
+
+       h1 span {
+           background: linear-gradient(90deg, var(--cyan-neon), var(--purple-neon));
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+       }
+
+       .hero-desc {
+           color: var(--text-muted);
+           font-size: 1.1rem;
+           max-width: 600px;
+           margin-bottom: 40px;
+           line-height: 1.6;
+       }
+
+       .hero-ctas {
+           display: flex;
+           gap: 20px;
+       }
+
+       .btn-primary {
+           font-family: var(--font-display);
+           background: linear-gradient(45deg, var(--cyan-neon), var(--purple-neon));
+           border: none;
+           color: #fff;
+           padding: 16px 32px;
+           border-radius: 4px;
+           font-weight: 600;
+           letter-spacing: 1px;
+           box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+           transition: transform 0.2s, box-shadow 0.2s;
+       }
+
+       .btn-primary:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
+       }
+
+       .btn-secondary {
+           font-family: var(--font-display);
+           background: transparent;
+           border: 1px solid rgba(255, 255, 255, 0.2);
+           color: var(--text-main);
+           padding: 16px 32px;
+           border-radius: 4px;
+           letter-spacing: 1px;
+           transition: background 0.3s, border-color 0.3s;
+       }
+
+       .btn-secondary:hover {
+           background: rgba(255, 255, 255, 0.05);
+           border-color: var(--text-main);
+       }
+
+       /* --- INNOVATION GRID SECTION --- */
+       .innovation {
+           padding: 100px 10%;
+           position: relative;
+       }
+
+       .section-header {
+           margin-bottom: 60px;
+       }
+
+       .section-header h2 {
+           font-family: var(--font-display);
+           font-size: 2.5rem;
+           margin-bottom: 10px;
+       }
+
+       .grid-container {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+           gap: 30px;
+       }
+
+       /* Glassmorphic Cyber Cards */
+       .card {
+           background: var(--bg-card);
+           border: 1px solid var(--border-glass);
+           padding: 40px;
+           border-radius: 8px;
+           position: relative;
+           overflow: hidden;
+           backdrop-filter: blur(10px);
+           transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+       }
+
+       .card::before {
+           content: '';
+           position: absolute;
+           top: 0; left: 0; width: 100%; height: 2px;
+           background: linear-gradient(90deg, transparent, var(--cyan-neon), transparent);
+           transform: translateX(-100%);
+           transition: transform 0.5s;
+       }
+
+       .card:hover {
+           transform: translateY(-5px);
+           border-color: rgba(0, 242, 254, 0.4);
+           box-shadow: 0 10px 30px rgba(0, 242, 254, 0.05);
+       }
+
+       .card:hover::before {
+           transform: translateX(100%);
+       }
+
+       .card-tag {
+           font-family: var(--font-mono);
+           font-size: 0.75rem;
+           color: var(--cyan-neon);
+           text-transform: uppercase;
+           margin-bottom: 20px;
+           display: block;
+       }
+
+       .card h3 {
+           font-family: var(--font-display);
+           font-size: 1.5rem;
+           margin-bottom: 15px;
+       }
+
+       .card p {
+           color: var(--text-muted);
+           font-size: 0.95rem;
+           line-height: 1.6;
+           margin-bottom: 30px;
+       }
+
+       .card-metric {
+           font-family: var(--font-mono);
+           font-size: 0.85rem;
+           color: var(--purple-neon);
+           border-top: 1px solid rgba(255, 255, 255, 0.05);
+           padding-top: 15px;
+           display: flex;
+           justify-content: space-between;
+       }
+
+       /* --- ANIMATIONS KEYFRAMES --- */
+       @keyframes floatOrb {
+           0% { transform: translate(0, 0) scale(1); }
+           100% { transform: translate(-60px, 40px) scale(1.1); }
+       }
+
+       @keyframes glitchText {
+           0%, 100% { text-shadow: 0 0 0 transparent; }
+           50% { text-shadow: 2px -1px 2px rgba(0,242,254,0.6), -2px 1px 2px rgba(155,81,224,0.6); }
+       }
+
+       /* Responsive Fixes */
+       @media(max-width: 768px) {
+           header nav { display: none; }
+           h1 { font-size: 2.5rem; }
+           .hero-ctas { flex-direction: column; width: 100%; }
+           .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+       }
+   </style>
+</head>
+<body>
+
+   <div class="custom-cursor" id="cursor"></div>
+   <div class="custom-cursor-follower" id="cursor-follower"></div>
+
+   <header>
+       <div class="logo">TORRICELLI</div>
+       <nav>
+           <ul>
+               <li><a href="#home">// CORE</a></li>
+               <li><a href="#tech">// TECH stack</a></li>
+               <li><a href="#ecosystem">// ECOSYSTEM</a></li>
+           </ul>
+       </nav>
+       <button class="btn-connect">CONNECT_NODE</button>
+   </header>
+
+   <main class="hero" id="home">
+       <div class="hero-matrix">[ SYSTEM STATUS: OPERATIONAL ]</div>
+       <h1>Shaping the Future <br><span>Under Pressure.</span></h1>
+       <p class="hero-desc">
+           At Torricelli Solutions, we control data velocity and architecture dynamics. We compress complexity to elevate your corporate infrastructure into the next quantum evolution.
+       </p>
+       <div class="hero-ctas">
+           <button class="btn-primary">INITIALIZE MATRIX</button>
+           <button class="btn-secondary">LAUNCH DEMO 3D</button>
+       </div>
+   </main>
+
+   <section class="innovation" id="tech">
+       <div class="section-header">
+           <div style="font-family: var(--font-mono); color: var(--cyan-neon); font-size: 0.8rem; margin-bottom: 5px;">// ENGINE_CAPABILITIES</div>
+           <h2>Quantum Innovations</h2>
+       </div>
+       
+       <div class="grid-container">
+           <div class="card">
+               <span class="card-tag">Prescriptive Intelligence</span>
+               <h3>AI Prescriptive</h3>
+               <p>Advanced structural algorithms designed to map out systemic friction points and auto-generate mitigation parameters in real time.</p>
+               <div class="card-metric">
+                   <span>EFFICIENCY METRIC:</span>
+                   <strong>+ 42.8%</strong>
+               </div>
+           </div>
+
+           <div class="card">
+               <span class="card-tag">Hyper-Compression</span>
+               <h3>Data Vacuum</h3>
+               <p>Proprietary architecture manipulating processing pressure to force complex data pipelines down to next-to-zero latency constraints.</p>
+               <div class="card-metric">
+                   <span>NETWORK DELAY:</span>
+                   <strong>~ 0.00ms</strong>
+               </div>
+           </div>
+
+           <div class="card">
+               <span class="card-tag">Autonomous Clusters</span>
+               <h3>Self-Optimizers</h3>
+               <p>Decentralized node ecosystems engineered to self-heal, balance infrastructure load, and evolve without external runtime input.</p>
+               <div class="card-metric">
+                   <span>CYBER RESILIENCE:</span>
+                   <strong>ABSOLUTE</strong>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <script>
+       const cursor = document.getElementById('cursor');
+       const follower = document.getElementById('cursor-follower');
+
+       document.addEventListener('mousemove', (e) => {
+           // Move cursor dot
+           cursor.style.left = e.clientX + 'px';
+           cursor.style.top = e.clientY + 'px';
+           
+           // Lag cursor circle follower for smoothness
+           setTimeout(() => {
+               follower.style.left = e.clientX + 'px';
+               follower.style.top = e.clientY + 'px';
+           }, 30);
+       });
+
+       // Add interactive expansions on interactive elements
+       const targets = document.querySelectorAll('button, a, .card');
+       targets.forEach(item => {
+           item.addEventListener('mouseenter', () => {
+               cursor.style.width = '20px';
+               cursor.style.height = '20px';
+               cursor.style.backgroundColor = 'transparent';
+               cursor.style.border = '1px solid var(--cyan-neon)';
+               follower.style.transform = 'translate(-50%, -50%) scale(1.5)';
+           });
+           item.addEventListener('mouseleave', () => {
+               cursor.style.width = '8px';
+               cursor.style.height = '8px';
+               cursor.style.backgroundColor = 'var(--cyan-neon)';
+               cursor.style.border = 'none';
+               follower.style.transform = 'translate(-50%, -50%) scale(1)';
+           });
+       });
+   </script>
+</body>
+</html>
